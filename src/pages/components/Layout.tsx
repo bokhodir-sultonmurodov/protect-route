@@ -1,21 +1,13 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
 
 const Layout = () => {
   return (
-    <div>
-      <nav style={{ display: "flex", gap: "1rem", padding: "1rem" }}>
-        <Link to="/">Home</Link>
-        <Link to="/statistic">Statistic</Link>
-        <button
-          onClick={() => {
-            localStorage.removeItem("token");
-            window.location.href = "/login";
-          }}
-        >
-          Logout
-        </button>
-      </nav>
-      <Outlet />
+    <div className="min-h-screen bg-white text-gray-800">
+      <Header />
+      <main className="p-6">
+        <Outlet />
+      </main>
     </div>
   );
 };
